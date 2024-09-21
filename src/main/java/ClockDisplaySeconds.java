@@ -1,6 +1,46 @@
+package src.main.java;
 
-public class ClockDisplaySeconds
-{
-    //Extend ClockDisplaySeconds to include a seconds field.
-    //Update all methods and parameters to accomodate this change
+public class ClockDisplaySeconds extends ClockDisplay {
+    private NumberDisplay seconds;
+
+    public ClockDisplaySeconds() {
+        super(); // Call the ClockDisplay constructor
+        seconds = new NumberDisplay(60); // Initialize seconds
+        updateDisplay(); // Update display safely
+    }
+
+    public ClockDisplaySeconds(int hour, int minute, int second) {
+        super(hour, minute); // Call the ClockDisplay constructor
+        seconds = new NumberDisplay(60); // Initialize seconds
+        setSeconds(second); // Set seconds directly
+        updateDisplay(); // Update the display
+    }
+
+    public void setSeconds(int second) {
+        seconds.setValue(second); // Set the seconds value
+    }
+
+    public void setTime(int hour, int minute, int second) {
+        super.setTime(hour, minute); // Set hours and minutes
+        setSeconds(second); // Set seconds
+        updateDisplay(); // Update the display
+    }
+
+    @Override
+    public void timeTick() {
+        seconds.increment(); // Increment seconds
+        if (seconds.getValue() == 0) { // If seconds wrap around
+            super.timeTick(); // Increment minutes and possibly hours
+        }
+        updateDisplay(); // Update display after ticking
+    }
+
+    @Override
+    protected void updateDisplay() {
+        // Only append seconds if they are initialized
+        super.updateDisplay(); // Get HH:MM
+        if (seconds != null) { // Check if seconds is initialized
+            display += ":" + seconds.getDisplayValue(); // Append seconds to display
+        }
+    }
 }
