@@ -44,3 +44,36 @@ public class ClockDisplaySeconds extends ClockDisplay {
         }
     }
 }
+
+//CODE ABOVE HAS EVERYTHING EXCEPT CLOCK DISPLAY 12 HOUR
+//CODE BELOW INCLUDES EVERYTHING ALONG WITH CLOCK DISPLAY 12 HOUR
+//package src.main.java;
+
+//public class ClockDisplaySeconds extends ClockDisplay {
+  //  public ClockDisplaySeconds() {
+      //  super();
+      //  updateDisplay();
+//    }
+
+  //  public ClockDisplaySeconds(int hour, int minute, int second) {
+    //    super(hour, minute, second);
+    //    seconds.setValue(second); // Set the seconds value directly
+   //     updateDisplay();
+//    }
+
+ //   public void setSeconds(int second) {
+      //  seconds.setValue(second); // Set the seconds value
+ //   }
+
+ //   @Override
+  //  public void timeTick() {
+    //    super.timeTick(); // Call the parent method to handle ticking
+  //  }
+
+  //  @Override
+  //  protected void updateDisplay() {
+   //     super.updateDisplay(); // Fetch the HH:MM part
+      //  display += ":" + seconds.getDisplayValue(); // Append seconds to the display
+    //}
+//}
+
